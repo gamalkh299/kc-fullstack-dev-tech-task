@@ -39,7 +39,11 @@ if ($requestUri == "/") {
     $courseController = new \Controllers\CourseController();
     switch ($requestMethod) {
         case "GET":
-            if (isset($uri[2])) {
+
+          //show courses by category then show cousres by id then show all courses
+            if (isset($uri[2]) && $uri[2] == "category") {
+                $courseController->showByCategory($uri[3]);
+            } elseif (isset($uri[2])) {
                 $courseController->show($uri[2]);
             } else {
                 $courseController->index();

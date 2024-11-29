@@ -44,4 +44,21 @@ class CourseController
         echo json_encode($course);
     }
 
+
+    public function showByCategory($id)
+    {
+        $this->course->category_id = $id;
+        $courses = $this->course->getCoursesByCategory();
+        if (!$courses) {
+            echo json_encode([
+                'message' => 'No courses found'
+            ]);
+            return;
+        }
+        foreach ($courses as $key => $course) {
+            $courses[$key]['main_category'] = $this->course->getMainCategory($course['category_id']);
+        }
+        echo json_encode($courses);
+    }
+
 }

@@ -49,6 +49,20 @@ class Course
     }
 
 
+    public function getCoursesByCategory()
+    {
+        $sql = "SELECT * FROM ".$this->table_name." WHERE category_id = :category_id";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':category_id' => $this->category_id
+        ]);
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    }
+
+
     public function getMainCategory($id)
     {
         $sql = "SELECT * FROM categories WHERE id = :id";
