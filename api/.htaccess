@@ -1,6 +1,25 @@
+# Enable CORS (Cross-Origin Resource Sharing)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+    Header set Access-Control-Allow-Credentials "true"
+</IfModule>
+
+# Handle OPTIONS preflight requests
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [L]
+</IfModule>
+# URL Rewrite Rules
 RewriteEngine On
 RewriteBase /api/
+
+# Prevent index.php from being rewritten (needed for handling frontend requests)
 RewriteRule ^index\\.php$ - [L]
+
+# If the requested URL doesn't match an existing file or directory, redirect to index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]

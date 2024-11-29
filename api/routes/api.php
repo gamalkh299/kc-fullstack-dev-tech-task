@@ -63,5 +63,5 @@ function sendResponse405()
 function sendResponse404()
 {
     http_response_code(404);
-    echo json_encode(["message" => "Not Found"]);
+    echo json_encode(["message" => "404 Not Found"]);
 }

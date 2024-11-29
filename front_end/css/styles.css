@@ -1,0 +1,157 @@
+/* Reset basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dedddd;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background-color: #dedddd;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Main content layout */
+.main-content {
+    display: flex;
+    flex: 1;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #dedddd;
+    color: black;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    color: green;
+}
+
+/* Courses Section */
+.courses {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.course-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin: 20px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.course-card h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+.course-card p {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#courses-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow the cards to wrap to the next line */
+    gap: 10px; /* Smaller space between cards */
+    justify-content: space-between; /* Distribute space evenly between cards */
+}
+
+.course-card {
+    width: calc(33.33% - 10px); /* Reduce card width to fit three per row */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    background-color: #f4f4f4; /* Card background */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Hover effect */
+    padding: 8px; /* Reduced padding */
+    text-align: center; /* Center the text */
+}
+
+.course-card img {
+    width: 100%;  /* Image takes up the full width of the card */
+    height: auto;
+    object-fit: cover;  /* Crop image to fit the card */
+}
+
+.course-card h4 {
+    font-size: 1.1rem; /* Slightly smaller title font */
+    margin-top: 8px; /* Reduced space above title */
+    margin-bottom: 5px; /* Reduced space below title */
+}
+
+.course-card p {
+    font-size: 0.85rem; /* Smaller description text */
+    color: #666;
+    padding: 0 5px 5px 5px; /* Smaller padding */
+}
+
+.course-card:hover {
+    transform: translateY(-3px); /* Subtle hover effect */
+}
+
+/* For smaller screens, show 2 cards per row */
+@media (max-width: 768px) {
+    .course-card {
+        width: calc(50% - 10px); /* 2 cards per row on smaller screens */
+    }
+}
+
+/* For very small screens, show 1 card per row */
+@media (max-width: 480px) {
+    .course-card {
+        width: 100%;  /* 1 card per row */
+    }
+}
